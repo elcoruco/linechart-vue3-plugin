@@ -141,6 +141,7 @@ console.log("fuck");
    
       <path v-for="(d, i) of data"
         :key="`bar-${i}-${d.key}-${d.value}-${lineFn(d)}`" 
+        :data-id="`bar-${i}-${d.key}-${d.value}-${lineFn(d)}`" 
         fill="none" 
         :stroke="'red'" 
         :stroke-width="1" 
