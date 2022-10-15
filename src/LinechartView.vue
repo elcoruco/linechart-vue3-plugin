@@ -19,7 +19,7 @@ const props = defineProps({
   data       : Array,
   margin     : Object,
   color      : String,
-  barPadding : Number
+  lineWidth  : Number
 });
 
 /**
@@ -35,7 +35,7 @@ const defaultWidth  = ref(400);
 const xLabel        = ref();
 const yLabel        = ref();
 const minWidth      = ref();
-const defaultBarPadding = ref(.1);
+const defaultLineWidth  = ref(1);
 const defaultColor      = ref('black');
 const defaultBackground = ref("white");
 const ticks         = ref();
@@ -48,7 +48,7 @@ const height     = computed( () => props.height || defaultHeight.value)
 const background = computed( () => props.background || defaultBackground.value)
 const margin     = computed( () => props.margin || defaultMargin.value)
 const color      = computed( () => props.color || defaultColor.value)
-const barPadding = computed( () => props.barPadding || defaultBarPadding.value)
+const lineWidth  = computed( () => props.lineWidth  || defaultLineWidth .value)
 
 
 // SCALES
@@ -57,7 +57,7 @@ const xScale = computed( () => {
   return scaleBand()
     .domain(props.data.map(d => d.key))
     .range([margin.value.left, width.value - margin.value.right])
-    .padding(barPadding.value)
+    .padding(lineWidth .value)
 })
 
 const yScale = computed(() => {
@@ -139,13 +139,13 @@ console.log("fuck");
       </g>
 
    
-      <path :key="`line-${i}`" 
+      <path v-for="(d, i) of data" :key="`line-${i}`" 
         fill="none" 
-        :stroke="'red'" 
-        :stroke-width="1" 
+        :stroke="color" 
+        :stroke-width="lineWidth" 
         stroke-linejoin="round" 
         stroke-linecap="round" 
-        :d="lineFn(data)" />
+        :d="lineFn(d)" />
       
       <!-- xScaleAxis -->
       <g :transform="`translate(0, ${height - margin.bottom})`">
