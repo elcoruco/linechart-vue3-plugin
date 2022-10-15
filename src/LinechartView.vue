@@ -74,7 +74,10 @@ const yScale = computed(() => {
 const lineFn = computed( () => {
   const lnFn = line()
     .x(d => xScale.value(d.key) + xScale.value.bandwidth()/2)
-    .y(d => yScale.value(d.value))
+    .y(d => {
+      console.log("xx:", d);
+      return  yScale.value(d.value)
+    })
       
   return lnFn;
 });
