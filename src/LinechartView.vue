@@ -139,15 +139,13 @@ console.log("fuck");
       </g>
 
    
-      <path v-for="(d, i) of data"
-        :key="`bar-${i}-${d.key}-${d.value}-${lineFn(d)}`" 
-        :data-id="`bar-${i}-${d.key}-${d.value}-${lineFn(d)}`" 
+      <path :key="`line-${i}`" 
         fill="none" 
         :stroke="'red'" 
         :stroke-width="1" 
         stroke-linejoin="round" 
         stroke-linecap="round" 
-        :d="lineFn(d)" />
+        :d="lineFn(data)" />
       
       <!-- xScaleAxis -->
       <g :transform="`translate(0, ${height - margin.bottom})`">
