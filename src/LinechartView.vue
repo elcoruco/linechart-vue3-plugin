@@ -6,6 +6,7 @@
 import { ref, computed } from "vue";
 import { scaleBand, scaleLinear } from "d3-scale";
 import { format } from "d3-format";
+import { line } from "d3-shape";
 
 /**
  * PROPERTIES
@@ -70,6 +71,14 @@ const yScale = computed(() => {
         .rangeRound(range);
 });
 
+const lineFn = computed( () => {
+  const lnFn = line()
+    .x(d => xScale.value(d.key) + xScale.value.bandwidth()/2)
+    .y(d => yScale.value(d.value))
+      
+  return lnFn;
+});
+
 /**
  * HELPERS
  * 
@@ -124,7 +133,7 @@ const f = format(",");
           stroke="black" /> -->
       </g>
 
-      <rect
+      <!-- <rect
         v-for="(d, i) of data"
         :key="`bar-${i}`"
         :width="xScale.bandwidth()"
@@ -132,7 +141,15 @@ const f = format(",");
         :x="xScale(d.key)"
         :y="yScale(d.value)"
         class="gf_barchart_item"
-        :fill="color"></rect>
+        :fill="color"></rect> -->
+      <path v-for="(d, i) of data"
+        :key="`bar-${i}`" 
+        fill="none" 
+        :stroke="'red'" 
+        :stroke-width="1" 
+        stroke-linejoin="round" 
+        stroke-linecap="round" 
+        :d="lineFn(d)" />
       
       <!-- xScaleAxis -->
       <g :transform="`translate(0, ${height - margin.bottom})`">
