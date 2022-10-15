@@ -85,6 +85,8 @@ const lineFn = computed( () => {
  */
 const f = format(",");
 
+
+console.log("fuck");
 </script>
 <template>
   <div class="gf_linechart_container">
