@@ -72,14 +72,14 @@ const yScale = computed(() => {
 });
 
 const lineFn = computed( () => {
-  const lnFn = line()
+  const fn = line()
     .x(d => xScale.value(d.key) + xScale.value.bandwidth()/2)
     .y(d => {
       console.log("xx:", d);
       return  yScale.value(d.value)
     })
       
-  return lnFn;
+  return fn;
 });
 
 /**
@@ -138,17 +138,9 @@ console.log("fuck");
           stroke="black" /> -->
       </g>
 
-      <!-- <rect
-        v-for="(d, i) of data"
-        :key="`bar-${i}`"
-        :width="xScale.bandwidth()"
-        :height="height - yScale(d.value) - margin.bottom"
-        :x="xScale(d.key)"
-        :y="yScale(d.value)"
-        class="gf_barchart_item"
-        :fill="color"></rect> -->
+   
       <path v-for="(d, i) of data"
-        :key="`bar-${i}`" 
+        :key="`bar-${i}-${d.key}-${d.value}-${lineFn(d)}`" 
         fill="none" 
         :stroke="'red'" 
         :stroke-width="1" 
