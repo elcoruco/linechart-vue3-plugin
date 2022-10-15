@@ -38,6 +38,7 @@ const minWidth      = ref();
 const defaultLineWidth  = ref(1);
 const defaultColor      = ref('black');
 const defaultBackground = ref("white");
+const defaultPointPadding = ref(.2);
 const ticks         = ref();
 const y0            = ref(0);
 
@@ -49,6 +50,7 @@ const background = computed( () => props.background || defaultBackground.value)
 const margin     = computed( () => props.margin || defaultMargin.value)
 const color      = computed( () => props.color || defaultColor.value)
 const lineWidth  = computed( () => props.lineWidth  || defaultLineWidth .value)
+const pointPadding  = computed( () => props.pointPadding  || defaultpointPadding .value)
 
 
 // SCALES
@@ -57,7 +59,7 @@ const xScale = computed( () => {
   return scaleBand()
     .domain(props.data.flat().map(d => d.key))
     .range([margin.value.left, width.value - margin.value.right])
-    .padding(lineWidth .value)
+    .padding(pointPadding.value)
 })
 
 const yScale = computed(() => {
