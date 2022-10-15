@@ -143,7 +143,7 @@ console.log("fuck");
    
       <path v-for="(d, i) of data" :key="`line-${i}`" 
         fill="none" 
-        :stroke="color" 
+        :stroke="d.color || color" 
         :stroke-width="lineWidth" 
         stroke-linejoin="round" 
         stroke-linecap="round" 
