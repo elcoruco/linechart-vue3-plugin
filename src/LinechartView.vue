@@ -50,7 +50,7 @@ const background = computed( () => props.background || defaultBackground.value)
 const margin     = computed( () => props.margin || defaultMargin.value)
 const color      = computed( () => props.color || defaultColor.value)
 const lineWidth  = computed( () => props.lineWidth  || defaultLineWidth .value)
-const pointPadding  = computed( () => props.pointPadding  || defaultpointPadding .value)
+const pointPadding = computed( () => props.pointPadding  || defaultPointPadding .value)
 
 
 // SCALES
