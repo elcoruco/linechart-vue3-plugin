@@ -55,13 +55,13 @@ const lineWidth  = computed( () => props.lineWidth  || defaultLineWidth .value)
 //
 const xScale = computed( () => {
   return scaleBand()
-    .domain(props.data.map(d => d.key))
+    .domain(props.data.flat().map(d => d.key))
     .range([margin.value.left, width.value - margin.value.right])
     .padding(lineWidth .value)
 })
 
 const yScale = computed(() => {
-  let curr = props.data.map(d => d.value);
+  let curr = props.data.flat().map(d => d.value);
   let domain = [y0.value, Math.max(...curr)];
   let range = [height.value - margin.value.bottom, margin.value.top];
 
@@ -139,14 +139,13 @@ console.log("fuck");
       </g>
 
    
-      <path
+      <path v-for="(d, i) of data" :key="`line-${i}`" 
         fill="none" 
         :stroke="color" 
         :stroke-width="lineWidth" 
         stroke-linejoin="round" 
         stroke-linecap="round" 
-        :d="lineFn(data)" />
-      
+        :d="lineFn(d)" />
       <!-- xScaleAxis -->
       <g :transform="`translate(0, ${height - margin.bottom})`">
         <!-- ticks -->
