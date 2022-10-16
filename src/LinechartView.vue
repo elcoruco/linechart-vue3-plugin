@@ -146,7 +146,8 @@ console.log("fuck");
         :stroke="d.color || color" 
         :stroke-width="lineWidth" 
         stroke-linejoin="round" 
-        stroke-linecap="round" 
+        stroke-linecap="round"
+        :data-color="d.color" 
         :d="lineFn(d)" />
       <!-- xScaleAxis -->
       <g :transform="`translate(0, ${height - margin.bottom})`">
