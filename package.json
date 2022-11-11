@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/elcoruco/linechart-vue3-plugin.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "author": "el.coruco@gmail.com",
   "license": "UNLICENCED",
   "bugs": {
