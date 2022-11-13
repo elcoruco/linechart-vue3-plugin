@@ -77,7 +77,6 @@ const lineFn = computed( () => {
   const fn = line()
     .x(d => xScale.value(d.key) + xScale.value.bandwidth()/2)
     .y(d => {
-      console.log("xx:", d);
       return  yScale.value(d.value)
     })
       
@@ -89,9 +88,6 @@ const lineFn = computed( () => {
  * 
  */
 const f = format(",");
-
-
-console.log("fuck");
 </script>
 <template>
   <div class="gf_linechart_container">
