@@ -57,8 +57,8 @@ const margin       = computed( () => props.margin || defaultMargin.value)
 const color        = computed( () => props.color || defaultColor.value)
 const lineWidth    = computed( () => props.lineWidth  || defaultLineWidth .value)
 const pointPadding = computed( () => props.pointPadding  || defaultPointPadding .value)
-const xAxis      = computed( () => props.xAxis ? Object.assign(defaultXAxis.value, props.xAxis) : props.xAxis )
-const yAxis      = computed( () => props.yAxis ? Object.assign(defaultYAxis.value, props.yAxis) : props.yAxis )
+const xAxis      = computed( () => props.xAxis ? Object.assign(defaultXAxis.value, props.xAxis) : defaultXAxis.value )
+const yAxis      = computed( () => props.yAxis ? Object.assign(defaultYAxis.value, props.yAxis) : defaultYAxis.value )
 
 // XSCALE
 // ----------------------------------------------------------------
@@ -103,6 +103,7 @@ const f = format(",");
  * ON MOUNTED
  */
 onMounted( () => {
+  console.log("errotr");
   console.log("xxxx:", xAxis.value, yAxis.value)
 })
 </script>
