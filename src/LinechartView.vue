@@ -3,7 +3,7 @@
  * DEPENDENCIES
  * 
  */
-import { ref, computed, onMounted } from "vue";
+import { ref, computed } from "vue";
 import { scaleBand, scaleLinear } from "d3-scale";
 import { format } from "d3-format";
 import { line } from "d3-shape";
@@ -99,13 +99,6 @@ const lineFn = computed( () => {
  */
 const f = format(",");
 
-/*
- * ON MOUNTED
- */
-onMounted( () => {
-  console.log("errotr");
-  console.log("xxxx:", xAxis.value, yAxis.value)
-})
 </script>
 <template>
   <div class="gf_linechart_container">
