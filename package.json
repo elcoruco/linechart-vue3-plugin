@@ -1,6 +1,6 @@
 {
-  "name": "@elcoruco/vu3-line-chart-plugin",
-  "version": "1.0.1",
+  "name": "@elcoruco/vue3-line-chart-plugin",
+  "version": "1.1.0",
   "description": "plugin para vue3 para graficar líneas",
   "main": "./dist/LinechartPlugin.js",
   "scripts": {
