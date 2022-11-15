@@ -19,7 +19,9 @@ const props = defineProps({
   data       : Array,
   margin     : Object,
   color      : String,
-  lineWidth  : Number
+  lineWidth  : Number,
+  xAxis      : Object,
+  yAxis      : Object,
 });
 
 /**
